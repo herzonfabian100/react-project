@@ -5,7 +5,7 @@ let todoList = [
   { id: 2, title: "Watch React Videos" },
   { id: 3, title: "Practice React exercises " }
 ]
-
+// Application 
 function App() {
   return (
     <div>
