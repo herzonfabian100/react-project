@@ -9,11 +9,10 @@ let todoList = [
 function TodoList() {
   return (
     <div>
-      <h1 > Todo List </h1>
       <ul> {
         todoList.map((Item) => {
           return (
-            <li key={Item.id} > {Item.title}
+            <li key={Item.id}> {Item.title}
             </li>
           )
         })
@@ -23,4 +22,4 @@ function TodoList() {
   );
 
 }
-export default TodoList
+export default TodoList;
