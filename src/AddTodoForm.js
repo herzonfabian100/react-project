@@ -21,7 +21,7 @@ function AddTodoForm(props) {
           type="text"
           name="title" required
           id="todoTitle"
-          placeholder="Add new todo"
+          placeholder="Add a new TODO here"
           value={initText}
           onChange={e => setInitText(e.target.value)}
         />
