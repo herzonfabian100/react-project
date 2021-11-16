@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
 
-function AddTodoForm(props) {
+function AddTodoForm({ onAddTodo }) {
 
-  const [initText, setInitText] = useState('');
+  const [todoTitle, setTodoTitle] = useState('')
+
+  const handleTitleChange = ({ target }) => {
+    const { value } = target;
+    setTodoTitle(value);
+  }
 
   const handleAddTodo = (e) => {
     console.log(e);
     e.preventDefault();
-    props.onAddTodo(initText);
-    setInitText('');
+    console.log(todoTitle)
+    onAddTodo({ id: Date.now(), title: todoTitle });
+    setTodoTitle('');
   }
 
   return (
@@ -22,8 +28,8 @@ function AddTodoForm(props) {
           name="title" required
           id="todoTitle"
           placeholder="Add a new TODO here"
-          value={initText}
-          onChange={e => setInitText(e.target.value)}
+          value={todoTitle}
+          onChange={handleTitleChange}
         />
         <button>Add</button>
         <hr />

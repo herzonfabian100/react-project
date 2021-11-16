@@ -1,11 +1,11 @@
 import React from 'react'
 
-function TodoListItem({ todo }) {
-  return (
-    <li>
-      <span>{todo.title}</span>
-    </li>
-  );
-}
+export default function TodoListItem({ title }) { //destructuring
 
-export default TodoListItem;
+
+  return (
+    <div>
+      <li>{title}</li>
+    </div>
+  )
+}
