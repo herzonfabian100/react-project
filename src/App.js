@@ -1,25 +1,41 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import AddTodoForm from './AddTodoForm';
 import TodoList from './TodoList';
 
 
-// Application 
+//React Custom Hook
+const useSemiPersistentState = () => {
+
+  const [todoList, setTodoList] = useState(
+    JSON.parse(localStorage.getItem('savedTodoList') || '[]')
+  );
+
+  useEffect(() => {
+    localStorage.setItem('savedTodoList', JSON.stringify(todoList));
+  }, [todoList]);
+
+  return [todoList, setTodoList];
+
+};
+
 function App() {
-  //const [newTodo, setNewTodo] = useState('');
+  // const [newTodo, setNewTodo] = React.useState('');
+  const [todoList, setTodoList] = useSemiPersistentState();
+
   const addTodo = (newTodo) => {
-
     setTodoList([...todoList, newTodo])
-
   };
-  const [todoList, setTodoList] = useState([])
-  console.log(todoList)
+
 
   return (
-    <div>
+    <>
       <h1>Todo List</h1>
       <AddTodoForm onAddTodo={addTodo} />
+      {/* <p>
+        New todo: {newTodo}  
+      </p> */}
       <TodoList todoList={todoList} />
-    </div>
+    </>
   );
 }
 

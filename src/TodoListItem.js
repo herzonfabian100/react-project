@@ -4,8 +4,9 @@ export default function TodoListItem({ title }) { //destructuring
 
 
   return (
-    <div>
+    <React.Fragment>
       <li>{title}</li>
-    </div>
+    </React.Fragment>
   )
 }
+

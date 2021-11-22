@@ -19,7 +19,7 @@ function AddTodoForm({ onAddTodo }) {
 
   return (
     <form onSubmit={handleAddTodo}>
-      <div>
+      <>
         <label
           htmlFor="todoTitle"><strong>Title: </strong>
         </label>
@@ -33,7 +33,7 @@ function AddTodoForm({ onAddTodo }) {
         />
         <button>Add</button>
         <hr />
-      </div>
+      </>
     </form>
   );
 }
