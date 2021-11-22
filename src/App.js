@@ -3,7 +3,7 @@ import AddTodoForm from './AddTodoForm';
 import TodoList from './TodoList';
 
 
-//React Custom Hook
+//Custom Hook
 const useSemiPersistentState = () => {
 
   const [todoList, setTodoList] = useState(
