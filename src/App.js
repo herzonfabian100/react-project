@@ -26,6 +26,10 @@ function App() {
     setTodoList([...todoList, newTodo])
   };
 
+  const removeTodo = (id) => {
+    const updatedTodos = todoList.filter((todo) => todo.id !== id);
+    setTodoList(updatedTodos);
+  };
 
   return (
     <>
@@ -34,7 +38,9 @@ function App() {
       {/* <p>
         New todo: {newTodo}  
       </p> */}
-      <TodoList todoList={todoList} />
+      <TodoList todoList={todoList}
+        removeTodo={removeTodo}
+      />
     </>
   );
 }

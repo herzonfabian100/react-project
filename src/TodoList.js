@@ -7,15 +7,14 @@ import TodoListItem from './TodoListItem';
 //   { id: 3, title: "Practice React exercises " }
 // ]
 
-function TodoList(props) {
-
-  const { todoList } = props; //destructuring
+function TodoList({ todoList, removeTodo }) {
 
   return (
     <>
       <ul>
         {todoList.map(function (item) {
-          return (<TodoListItem key={item.id} title={item.title} />)
+          return (<TodoListItem key={item.id} todo={item}
+            onRemoveTodo={removeTodo} />)
         })}
       </ul>
     </>
