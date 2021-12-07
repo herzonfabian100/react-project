@@ -1,25 +1,47 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
+import AddTodoForm from './AddTodoForm';
+import TodoList from './TodoList';
 
-let todoList = [
-  { id: 1, title: "Read React Chapter" },
-  { id: 2, title: "Watch React Videos" },
-  { id: 3, title: "Practice React exercises " }
-]
+
+//Custom Hook
+const useSemiPersistentState = () => {
+
+  const [todoList, setTodoList] = useState(
+    JSON.parse(localStorage.getItem('savedTodoList') || '[]')
+  );
+
+  useEffect(() => {
+    localStorage.setItem('savedTodoList', JSON.stringify(todoList));
+  }, [todoList]);
+
+  return [todoList, setTodoList];
+
+};
 
 function App() {
+  // const [newTodo, setNewTodo] = React.useState('');
+  const [todoList, setTodoList] = useSemiPersistentState();
+
+  const addTodo = (newTodo) => {
+    setTodoList([...todoList, newTodo])
+  };
+
+  const removeTodo = (id) => {
+    const updatedTodos = todoList.filter((todo) => todo.id !== id);
+    setTodoList(updatedTodos);
+  };
+
   return (
-    <div>
-      <h1> Todo List </h1>
-      <ul>
-        {todoList.map((Item) => {
-          return (
-            <li key={Item.id}>
-              {Item.title}
-            </li>
-          )
-        })}
-      </ul>
-    </div >
+    <>
+      <h1>Todo List</h1>
+      <AddTodoForm onAddTodo={addTodo} />
+      {/* <p>
+        New todo: {newTodo}  
+      </p> */}
+      <TodoList todoList={todoList}
+        removeTodo={removeTodo}
+      />
+    </>
   );
 }
 
