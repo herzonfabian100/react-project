@@ -1,12 +1,12 @@
 import React from 'react'
 
-export default function TodoListItem({ title }) { //destructuring
-
-
+export default function TodoListItem({ todo, onRemoveTodo }) { //destructuring
+  const { title } = todo;
   return (
-    <React.Fragment>
-      <li>{title}</li>
-    </React.Fragment>
-  )
+    <li>
+      <span>{title}</span>
+      <button type="button" onClick={() => onRemoveTodo(todo.id)}> Remove</button>
+    </li>
+  );
 }
 
