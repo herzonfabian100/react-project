@@ -12,11 +12,15 @@ function TodoList({ todoList, removeTodo }) {
   return (
     <>
       <ul>
-        {todoList.map(function (item) {
-          return (<TodoListItem key={item.id} todo={item}
-            onRemoveTodo={removeTodo} />)
-        })}
+        {todoList.map(records => (
+          <TodoListItem
+            key={records.id}
+            todo={records.fields.Title}
+            onRemoveTodo={removeTodo}
+          />
+        ))}
       </ul>
+
     </>
   );
 }
