@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import AddTodoForm from './AddTodoForm';
 import TodoList from './TodoList';
-
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 
 
@@ -50,21 +50,26 @@ function App() {
   };
 
   return (
-    <>
-      <h1>Todo List</h1>
-      <AddTodoForm onAddTodo={addTodo} />
-      {/* <p>
-        New todo: {newTodo}  
-      </p> */}
-      {isLoading ? (
-        <p>Loading… </p>
-      ) : (
-        <TodoList todoList={todoList}
-          removeTodo={removeTodo}
-        />
-      )}
-    </>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/">
+          <h1 style={{ color: "blue" }}>Todo List</h1>
+          <AddTodoForm
+            onAddTodo={addTodo}
+          />
+          {isLoading ? (
+            <p>Fetching Data... </p>
+          ) : (
+            <TodoList todoList={todoList}
+              removeTodo={removeTodo}
+            />
+          )}
+        </Route>
+        <Route path="/new">
+          <h1 style={{ color: "Blue" }}>New Todo List</h1>
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
-
 export default App;
