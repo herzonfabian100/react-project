@@ -33,7 +33,7 @@ const InputWithLabel = ({
         value={todoTitle}
         onChange={handleTitleChange}
       />
-      <button style={{ color: "blue" }}>Add</button>
+      <button style={{ color: "Gray" }}>Add</button>
     </>
   );
 }

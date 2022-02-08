@@ -1,7 +1,18 @@
 import { useState, useEffect } from 'react';
-import AddTodoForm from './AddTodoForm';
 import TodoList from './TodoList';
+import AddTodoForm from './AddTodoForm';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import styles from './App.module.css';
+import logo from './logo.jpeg';
+
+
+
+function Imagen() {
+  // Import result is the URL of your image
+  return <div>
+    <img src={logo} alt="Logo" width="193" height="130" />
+  </div>
+}
 
 
 
@@ -50,26 +61,38 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/">
-          <h1 style={{ color: "blue" }}>Todo List</h1>
-          <AddTodoForm
-            onAddTodo={addTodo}
-          />
-          {isLoading ? (
-            <p>Fetching Data... </p>
-          ) : (
-            <TodoList todoList={todoList}
-              removeTodo={removeTodo}
-            />
-          )}
-        </Route>
-        <Route path="/new">
-          <h1 style={{ color: "Blue" }}>New Todo List</h1>
-        </Route>
-      </Switch>
-    </BrowserRouter>
+    <div>
+      {Imagen()}
+      <div className={styles.app}>
+
+
+
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/">
+              <div className={styles.container}>
+                <h1 className={styles.headlineTitle}
+                >Todo List</h1>
+                <TodoList todoList={todoList}
+                  removeTodo={removeTodo}
+                />
+                {isLoading ? (
+                  <p>Fetching Data... </p>
+                ) : (
+                  <AddTodoForm
+                    onAddTodo={addTodo}
+                  />
+
+                )}
+              </div>
+            </Route>
+            <Route path="/new">
+              <h1 style={{ color: "Gray" }}>New Todo List</h1>
+            </Route>
+          </Switch>
+        </BrowserRouter>
+      </div>
+    </div>
   );
 }
 export default App;

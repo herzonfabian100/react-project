@@ -32,7 +32,7 @@ function AddTodoForm({ onAddTodo }) {
           <strong>Title:</strong>
         </InputWithLabel>
       </form>
-      <hr />
+
     </>
   );
 }
