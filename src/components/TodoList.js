@@ -11,14 +11,14 @@ function TodoList({ todoList, removeTodo }) {
 
   return (
     <>
-      <ul>
-        {todoList.map(records => (
-          <TodoListItem
-            key={records.id}
-            todo={records.fields.Title}
-            onRemoveTodo={removeTodo}
-          />
-        ))}
+      <ul> {
+        todoList.map(records => (<
+          TodoListItem key={records.id}
+          todo={records.fields.Title}
+          onRemoveTodo={removeTodo}
+        />
+        ))
+      }
       </ul>
 
     </>

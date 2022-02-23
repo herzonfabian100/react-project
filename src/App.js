@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
-import TodoList from './TodoList';
-import AddTodoForm from './AddTodoForm';
+import TodoList from './components/TodoList';
+import AddTodoForm from './components/AddTodoForm';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import styles from './App.module.css';
 import logo from './logo.jpeg';
+import TodoContainer from './components/TodoContainer';
+
 
 
 
@@ -61,38 +63,41 @@ function App() {
   };
 
   return (
-    <div>
-      {Imagen()}
-      <div className={styles.app}>
+    <>
+
+      <div>
+        {Imagen()}
+        <div className={styles.app}>
 
 
 
-        <BrowserRouter>
-          <Switch>
-            <Route exact path="/">
-              <div className={styles.container}>
-                <h1 className={styles.headlineTitle}
-                >Todo List</h1>
-                <TodoList todoList={todoList}
-                  removeTodo={removeTodo}
-                />
-                {isLoading ? (
-                  <p>Fetching Data... </p>
-                ) : (
-                  <AddTodoForm
-                    onAddTodo={addTodo}
+          <BrowserRouter>
+            <Switch>
+              <Route exact path="/">
+                <div className={styles.container}>
+                  <h1 className={styles.headlineTitle}>Todo List</h1>
+                  <TodoList todoList={todoList}
+                    removeTodo={removeTodo}
                   />
+                  {isLoading ? (
+                    <p>Fetching Data... </p>
+                  ) : (
+                    <AddTodoForm
+                      onAddTodo={addTodo}
+                    />
 
-                )}
-              </div>
-            </Route>
-            <Route path="/new">
-              <h1 style={{ color: "Gray" }}>New Todo List</h1>
-            </Route>
-          </Switch>
-        </BrowserRouter>
+                  )}
+                </div>
+              </Route>
+              <Route path="/new">
+                <h1 style={{ color: "Gray" }}>New Todo List</h1>
+              </Route>
+            </Switch>
+          </BrowserRouter>
+        </div>
       </div>
-    </div>
+      <TodoContainer />
+    </>
   );
 }
 export default App;
