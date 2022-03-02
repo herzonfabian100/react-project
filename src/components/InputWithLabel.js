@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import PropTypes from 'prop-types';
 
 const InputWithLabel = ({
   id,
@@ -7,7 +8,6 @@ const InputWithLabel = ({
   children,
   todoTitle,
 }) => {
-
   const inputRef = useRef();
 
 
@@ -18,24 +18,27 @@ const InputWithLabel = ({
     }
   }, [todoTitle]);
 
-  return (
-    <>
-      <label
-        htmlFor={id}><strong>{children}</strong>
-      </label>
-      &nbsp;
-      <input
-        id={id}
-        type="text"
-        name={name}
-        ref={inputRef}
-        placeholder="Add new to do"
-        value={todoTitle}
-        onChange={handleTitleChange}
-      />
-      <button style={{ color: "Gray" }}>Add</button>
-    </>
+  return (<>
+    <label htmlFor={id} > <strong > {children} </strong> </label > &nbsp;
+    < input id={id}
+      type="text"
+      name={name}
+      ref={inputRef}
+      placeholder="Add New Title"
+      value={todoTitle}
+      onChange={handleTitleChange} />
+    <button style={
+      { color: "Gray" }
+    } > Add </button>
+  </>
   );
 }
+
+InputWithLabel.propTypes = {
+  children: PropTypes.object,
+  name: PropTypes.string,
+  handleTitleChange: PropTypes.func,
+  todoTitle: PropTypes.string
+};
 
 export default InputWithLabel;
