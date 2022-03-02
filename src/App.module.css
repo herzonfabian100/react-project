@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Kanit:wght@100&family=Rowdies&display=swap');
+.app {
+    text-align: center;
+    font-family: 'Comfortaa', cursive;
+    font-family: 'Kanit', sans-serif;
+    font-family: 'Rowdies', cursive;
+}
+
+
+/* Style for the header*/
+
+.headlineTitle {
+    color: rgb(30, 32, 30);
+    font-size: 48px;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+
+/* Styling the container and text color */
+
+.container {
+    height: auto;
+    margin: 0ex;
+    padding: 80px;
+    background: #abaeb3;
+    background: linear-gradient(to right, #a3a4a5, #777879);
+    color: #080808;
+}
+
+
+/* Making app and headlineTitle responsiveness */
+
+@media (max-width: 600px) {
+    .app {
+        color: rgb(226, 226, 226);
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 0px;
+    }
+}
+
+@media (orientation: landscape) and (max-width: 600px) {
+    .headlineTitle {
+        color: gray;
+    }
+}
