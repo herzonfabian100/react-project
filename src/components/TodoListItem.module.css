@@ -1,0 +1,49 @@
+/* Styling the Remove button in the list item section */
+
+.buttonRemove {
+    background: rgb(185, 175, 175);
+    color: rgb(20, 20, 20);
+    border: no;
+    border-radius: 5px;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+.buttonRemove:hover {
+    background-color: rgb(153, 145, 145);
+    cursor: wait;
+}
+
+
+/* Styling the list item section */
+
+li {
+    list-style: none;
+}
+
+.ListItem {
+    display: flex;
+    color: rgb(34, 36, 34);
+    justify-content: space-between;
+    margin-bottom: 20px;
+    background: #5a5c5f;
+    box-shadow: 0 0 15px -2px #292727;
+    border: 1px solid rgb(103, 103, 109);
+    padding: 20px 30px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.ListItem:hover {
+    background-color: #b3b3b3;
+    cursor: grabbing;
+}
+
+
+/* Making ListIten responsiviness */
+
+@media (max-width: 500px) {
+    .ListItem {
+        color: rgb(252, 250, 250);
+    }
+}
