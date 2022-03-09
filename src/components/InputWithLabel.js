@@ -18,18 +18,16 @@ const InputWithLabel = ({
     }
   }, [todoTitle]);
 
-  return (<>
-    <label htmlFor={id} > <strong > {children} </strong> </label > &nbsp;
-    < input id={id}
+  return (< >
+    <label htmlFor={id} > <strong > {children} </strong> </label > & nbsp; <
+      input id={id}
       type="text"
       name={name}
       ref={inputRef}
       placeholder="Add New Title"
       value={todoTitle}
       onChange={handleTitleChange} />
-    <button style={
-      { color: "Gray" }
-    } > Add </button>
+    <button style={{ color: "Gray" }} > Add </button>
   </>
   );
 }
